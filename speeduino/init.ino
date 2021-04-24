@@ -2302,6 +2302,12 @@ void setPinMapping(byte boardID)
       
     #endif
       break;
+      
+    case R96_BOARD_ID:
+      // Pin definitions for the custom R96 ECU hardware.
+      r96_setPinMapping();
+      break;
+      
     default:
       #if defined(STM32F407xx)
       //Pin definitions for experimental board Tjeerd 

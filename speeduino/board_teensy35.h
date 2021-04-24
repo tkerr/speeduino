@@ -14,8 +14,8 @@
   #define PINMASK_TYPE uint8_t
   #define COMPARE_TYPE uint16_t
   #define COUNTER_TYPE uint16_t
-  #define BOARD_MAX_DIGITAL_PINS 34
-  #define BOARD_MAX_IO_PINS 34 //digital pins + analog channels + 1
+  #define BOARD_MAX_DIGITAL_PINS 39  // Teensy 3.5 has digital pins 0 - 39
+  #define BOARD_MAX_IO_PINS 42 // Digital pins + analog channels + 1 (39 + A21 + A22 + 1)
   #ifdef USE_SPI_EEPROM
     #define EEPROM_LIB_H "src/SPIAsEEPROM/SPIAsEEPROM.h"
   #else
@@ -25,6 +25,8 @@
   #define RTC_LIB_H "TimeLib.h"
 
   #define micros_safe() micros() //timer5 method is not used on anything but AVR, the micros_safe() macro is simply an alias for the normal micros()
+  
+  // Pins 0/1 = RX1/TX1, 3/4 = CAN0TX/CAN0RX
   #define pinIsReserved(pin)  ( ((pin) == 0) || ((pin) == 1) || ((pin) == 3) || ((pin) == 4) ) //Forbiden pins like USB
 
 /*

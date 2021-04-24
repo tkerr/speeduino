@@ -125,6 +125,10 @@
 //This can only be included after the above section
 #include BOARD_H //Note that this is not a real file, it is defined in globals.h. 
 
+// R96 Project-specific definitions.
+// Include this after the hardware board definitions.
+#include "r96_project.h"
+
 //Handy bitsetting macros
 #define BIT_SET(a,b) ((a) |= (1U<<(b)))
 #define BIT_CLEAR(a,b) ((a) &= ~(1U<<(b)))
