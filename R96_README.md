@@ -1,6 +1,6 @@
 <div align="center">
 
-<img src="https://github.com/tkerr/speeduino/raw/master/doc/R96.png" alt="R96 ECU" width="600" />
+<img src="https://github.com/tkerr/speeduino/raw/r96-main/doc/R96.png" alt="R96 ECU" width="600" />
 
 [![License](https://img.shields.io/badge/license-GPLv2-blue.svg)](https://github.com/tkerr/speeduino/blob/master/LICENSE)
 
