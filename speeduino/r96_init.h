@@ -73,5 +73,10 @@
  */
 void r96_setPinMapping();
 
+/**
+ * @brief Initialize R96 custom objects.
+ */
+void r96_initialise();
+
 
 #endif // _R96_INIT_H

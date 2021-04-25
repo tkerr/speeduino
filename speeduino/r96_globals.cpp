@@ -55,7 +55,15 @@
  * Global objects and data.
  ******************************************************************************/
 
-byte pinClutch = 0;       // Clutch digital input
+// R96 custom I/O.
+byte pinClutch = 0;          // Clutch digital input
+
+// R96 custom tables.
+struct table3D boostTable2;  // 8x8 boost map for boost by gear (gear 2)
+struct table3D boostTable3;  // 8x8 boost map for boost by gear (gear 3)
+struct table3D boostTable4;  // 8x8 boost map for boost by gear (gear 4)
+struct table3D boostTable5;  // 8x8 boost map for boost by gear (gear 5)
+struct table3D boostTable6;  // 8x8 boost map for boost by gear (gear 6)
 
 
 /******************************************************************************

@@ -5,7 +5,7 @@
 
 inline int8_t getTableYAxisFactor(const table3D *pTable)
 {
-    return pTable==&boostTable || pTable==&vvtTable ? 1 : TABLE_LOAD_MULTIPLIER;
+    return pTable==&boostTable || pTable==&boostTable2 || pTable==&boostTable3 || pTable==&boostTable4 || pTable==&boostTable5 || pTable==&boostTable6 || pTable==&vvtTable ? 1 : TABLE_LOAD_MULTIPLIER;
 }
 
 inline int8_t getTableXAxisFactor(const table3D *)

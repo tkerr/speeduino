@@ -182,6 +182,16 @@ void writeConfig(byte tableNum)
       writeCounter = writeTable(&vvtTable, index, writeCounter);
       index = EEPROM_CONFIG7_XSIZE3;
       writeCounter = writeTable(&stagingTable, index, writeCounter);
+      index = EEPROM_CONFIG7_XSIZE4;
+      writeCounter = writeTable(&boostTable2, index, writeCounter);
+      index = EEPROM_CONFIG7_XSIZE5;
+      writeCounter = writeTable(&boostTable3, index, writeCounter);
+      index = EEPROM_CONFIG7_XSIZE6;
+      writeCounter = writeTable(&boostTable4, index, writeCounter);
+      index = EEPROM_CONFIG7_XSIZE7;
+      writeCounter = writeTable(&boostTable5, index, writeCounter);
+      index = EEPROM_CONFIG7_XSIZE8;
+      writeCounter = writeTable(&boostTable6, index, writeCounter);
       eepromWritesPending = writeCounter > EEPROM_MAX_WRITE_BLOCK;
       break;
 
@@ -368,6 +378,11 @@ void loadConfig()
   loadTable(&boostTable, EEPROM_CONFIG7_MAP1);
   loadTable(&vvtTable, EEPROM_CONFIG7_MAP2);
   loadTable(&stagingTable, EEPROM_CONFIG7_MAP3);
+  loadTable(&boostTable2, EEPROM_CONFIG7_MAP4);
+  loadTable(&boostTable3, EEPROM_CONFIG7_MAP5);
+  loadTable(&boostTable4, EEPROM_CONFIG7_MAP6);
+  loadTable(&boostTable5, EEPROM_CONFIG7_MAP7);
+  loadTable(&boostTable6, EEPROM_CONFIG7_MAP8);
 
   //*********************************************************************************************************************************************************************************
   // Fuel trim tables load

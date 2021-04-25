@@ -180,6 +180,19 @@ void r96_setPinMapping()
 }
 
 
+/**************************************
+ * r96_initialise()
+ **************************************/
+void r96_initialise()
+{
+    table3D_setSize(&boostTable2, TABLE_BOOST_SIZE);
+    table3D_setSize(&boostTable3, TABLE_BOOST_SIZE);
+    table3D_setSize(&boostTable4, TABLE_BOOST_SIZE);
+    table3D_setSize(&boostTable5, TABLE_BOOST_SIZE);
+    table3D_setSize(&boostTable6, TABLE_BOOST_SIZE);
+}
+
+
 /*****************************************************************************
  * Private methods and functions.
  ******************************************************************************/

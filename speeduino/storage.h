@@ -84,6 +84,10 @@ Current layout of EEPROM data (Version 3) is as follows (All sizes are in bytes)
 | 3583  |512  | Calibration data (CLT)              |
 -----------------------------------------------------
 */
+#ifdef USE_R96_PROJECT
+    // Use a custom address map for the R96 project.
+    #include "r96_eeprom_map.h"
+#else
 
 #define EEPROM_DATA_VERSION   0
 
@@ -208,6 +212,9 @@ Current layout of EEPROM data (Version 3) is as follows (All sizes are in bytes)
 #define EEPROM_CALIBRATION_O2   3743 //3839-96 +64
 #define EEPROM_CALIBRATION_IAT  3839 //3967-128
 #define EEPROM_CALIBRATION_CLT  3967 //4095-128
+
+#endif // USE_R96_PROJECT
+
 //These were the values used previously when all calibration tables were 512 long. They need to be retained for the update process (202005 -> 202008) can work. 
 #define EEPROM_CALIBRATION_O2_OLD   2559
 #define EEPROM_CALIBRATION_IAT_OLD  3071

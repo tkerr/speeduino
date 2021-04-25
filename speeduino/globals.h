@@ -125,6 +125,10 @@
 //This can only be included after the above section
 #include BOARD_H //Note that this is not a real file, it is defined in globals.h. 
 
+// Uncomment the following definition to allow compilation for the R96 project.
+// This provides a means to conditionally compile code blocks in non-R96 source files.
+#define USE_R96_PROJECT
+
 // R96 Project-specific definitions.
 // Include this after the hardware board definitions.
 #include "r96_project.h"
@@ -793,7 +797,8 @@ struct config2 {
   byte fanWhenOff : 1;      // Only run fan when engine is running
   byte fanWhenCranking : 1;      //**< Setting whether the fan output will stay on when the engine is cranking */ 
   byte useDwellMap : 1;  // Setting to change between fixed dwell value and dwell map
-  byte fanUnused : 2;
+  byte fanUnused : 1;
+  byte boostByGear : 1;  // Boost by gear on/off
   byte rtc_mode : 2;
   byte incorporateAFR : 1;  //Incorporate AFR
   byte asePct[4];  //Afterstart enrichment (%)

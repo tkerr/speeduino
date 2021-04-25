@@ -1,5 +1,5 @@
 /******************************************************************************
- * r96_globals.h
+ * r96_boost.cpp
  * Copyright (c) 2021 Thomas Kerr AB3GY
  *
  * Developed for the R96 Speeduino project.
@@ -26,12 +26,9 @@
 /**
  * @file
  * @brief
- * Global object definitions for the R96 Speeduino project.
+ * Boost control function and data implementation for the R96 Speeduino project.
  */
-
-#ifndef _R96_GLOBALS_H
-#define _R96_GLOBALS_H
-
+ 
 /******************************************************************************
  * System include files.
  ******************************************************************************/
@@ -40,34 +37,73 @@
 /******************************************************************************
  * Local include files.
  ******************************************************************************/
-#include "table.h"
+#include "globals.h"
 
 
 /******************************************************************************
- * Public definitions.
+ * Forward references.
  ******************************************************************************/
 
-#define BOOST_BY_GEAR_ENA_BIT 4  //!< Boost by gear enable bit position
+
+/******************************************************************************
+ * Local definitions.
+ ******************************************************************************/
 
 
 /******************************************************************************
  * Global objects and data.
  ******************************************************************************/
- 
-// R96 custom I/O.
-extern byte pinClutch;              //!< Clutch digital input
-
-// R96 custom tables.
-extern struct table3D boostTable2;  //!< 8x8 boost map for boost by gear (gear 2)
-extern struct table3D boostTable3;  //!< 8x8 boost map for boost by gear (gear 3)
-extern struct table3D boostTable4;  //!< 8x8 boost map for boost by gear (gear 4)
-extern struct table3D boostTable5;  //!< 8x8 boost map for boost by gear (gear 5)
-extern struct table3D boostTable6;  //!< 8x8 boost map for boost by gear (gear 6)
 
 
 /******************************************************************************
- * Public functions.
+ * Local data.
  ******************************************************************************/
 
 
-#endif // _R96_GLOBALS_H
+/******************************************************************************
+ * Public methods and functions.
+ ******************************************************************************/
+
+/**************************************
+ * r96_getBoostTable()
+ **************************************/
+struct table3D* r96_getBoostTable()
+{
+    struct table3D* pTable = &boostTable;  // Initialize to primary boost table
+
+    if (configPage2.boostByGear == 1)
+    {
+        switch (currentStatus.gear)
+        {
+            case 0:  // getGear() could return zero if gear is unknown
+            case 1:
+                pTable = &boostTable;
+                break;
+            case 2:
+                pTable = &boostTable2;
+                break;
+            case 3:
+                pTable = &boostTable3;
+                break;
+            case 4:
+                pTable = &boostTable4;
+                break;
+            case 5:
+                pTable = &boostTable5;
+                break;
+            case 6:
+            default:  // Just in case gear > 6 somehow
+                pTable = &boostTable6;
+                break;
+        }
+    }
+    return pTable;
+}
+
+
+/*****************************************************************************
+ * Private methods and functions.
+ ******************************************************************************/
+
+
+// End of file.

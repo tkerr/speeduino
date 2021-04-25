@@ -49,6 +49,7 @@ void initialiseAll()
     table3D_setSize(&trim7Table, 6);
     table3D_setSize(&trim8Table, 6);
     table3D_setSize(&dwellTable, 4);
+    r96_initialise();
 
     #if defined(CORE_STM32)
     configPage9.intcan_available = 1;   // device has internal canbus

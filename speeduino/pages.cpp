@@ -24,7 +24,7 @@
 //  2. Offset to intra-entity byte
 
 // Page sizes as defined in the .ini file
-constexpr const uint16_t ini_page_sizes[] = { 0, 128, 288, 288, 128, 288, 128, 240, 384, 192, 192, 288, 192, 128, 288 };
+constexpr const uint16_t ini_page_sizes[] = { 0, 128, 288, 288, 128, 288, 128, 640, 384, 192, 192, 288, 192, 128, 288 };
 
 // What section of a 3D table the offset mapped to
 enum table3D_section_t { 
@@ -174,7 +174,12 @@ entity_t map_page_offset_to_entity_inline(uint8_t pageNumber, uint16_t offset)
       CHECK_TABLE(offset, 0U, &boostTable, 8, pageNumber)
       CHECK_TABLE(offset, TABLE8_SIZE, &vvtTable, 8, pageNumber)
       CHECK_TABLE(offset, TABLE8_SIZE*2, &stagingTable, 8, pageNumber)
-      END_OF_PAGE(boostvvtPage, TABLE8_SIZE*3);
+      CHECK_TABLE(offset, TABLE8_SIZE*3, &boostTable2, 8, pageNumber)
+      CHECK_TABLE(offset, TABLE8_SIZE*4, &boostTable3, 8, pageNumber)
+      CHECK_TABLE(offset, TABLE8_SIZE*5, &boostTable4, 8, pageNumber)
+      CHECK_TABLE(offset, TABLE8_SIZE*6, &boostTable5, 8, pageNumber)
+      CHECK_TABLE(offset, TABLE8_SIZE*7, &boostTable6, 8, pageNumber)
+      END_OF_PAGE(boostvvtPage, TABLE8_SIZE*8);
       break;
 
     case seqFuelPage:

@@ -19,31 +19,31 @@ This file is used for everything related to maps/tables including their definiti
 #define TABLE3D_SIZE_4   (4 * 4 + 8 + 8 + (4 * sizeof(byte*))) //2 bytes for each value on the axis + allocation for array pointers
 
 //Define the table sizes
-#define TABLE_FUEL1_SIZE    16;
-#define TABLE_FUEL2_SIZE    16;
-#define TABLE_IGN1_SIZE     16;
-#define TABLE_IGN2_SIZE     16;
-#define TABLE_AFR_SIZE      16;
-#define TABLE_STAGING_SIZE  8;
-#define TABLE_BOOST_SIZE    8;
-#define TABLE_VVT1_SIZE     8;
-#define TABLE_VVT2_SIZE     8;
-#define TABLE_WMI_SIZE      8;
-#define TABLE_TRIM1_SIZE    6;
-#define TABLE_TRIM2_SIZE    6;
-#define TABLE_TRIM3_SIZE    6;
-#define TABLE_TRIM4_SIZE    6;
-#define TABLE_TRIM5_SIZE    6;
-#define TABLE_TRIM6_SIZE    6;
-#define TABLE_TRIM7_SIZE    6;
-#define TABLE_TRIM8_SIZE    6;
-#define TABLE_DWELL_SIZE    4;
+#define TABLE_FUEL1_SIZE    16
+#define TABLE_FUEL2_SIZE    16
+#define TABLE_IGN1_SIZE     16
+#define TABLE_IGN2_SIZE     16
+#define TABLE_AFR_SIZE      16
+#define TABLE_STAGING_SIZE  8
+#define TABLE_BOOST_SIZE    8   // There are 6 boost tables
+#define TABLE_VVT1_SIZE     8
+#define TABLE_VVT2_SIZE     8
+#define TABLE_WMI_SIZE      8
+#define TABLE_TRIM1_SIZE    6
+#define TABLE_TRIM2_SIZE    6
+#define TABLE_TRIM3_SIZE    6
+#define TABLE_TRIM4_SIZE    6
+#define TABLE_TRIM5_SIZE    6
+#define TABLE_TRIM6_SIZE    6
+#define TABLE_TRIM7_SIZE    6
+#define TABLE_TRIM8_SIZE    6
+#define TABLE_DWELL_SIZE    4
 
 /*
 *********** WARNING! ***********
 YOU MUST UPDATE THE TABLE COUNTS IN THE LINE BELOW WHENEVER A NEW TABLE IS ADDED!
 */
-#define TABLE_HEAP_SIZE     ((5 * TABLE3D_SIZE_16) + (5 * TABLE3D_SIZE_8) + (8 * TABLE3D_SIZE_6) + (1 * TABLE3D_SIZE_4) + 1)
+#define TABLE_HEAP_SIZE     ((5 * TABLE3D_SIZE_16) + (10 * TABLE3D_SIZE_8) + (8 * TABLE3D_SIZE_6) + (1 * TABLE3D_SIZE_4) + 1)
 
 
 /*

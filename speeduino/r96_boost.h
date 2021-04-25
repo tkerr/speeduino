@@ -1,5 +1,5 @@
 /******************************************************************************
- * r96_globals.h
+ * r96_boost.h
  * Copyright (c) 2021 Thomas Kerr AB3GY
  *
  * Developed for the R96 Speeduino project.
@@ -26,11 +26,11 @@
 /**
  * @file
  * @brief
- * Global object definitions for the R96 Speeduino project.
+ * Boost control function and data definitions for the R96 Speeduino project.
  */
 
-#ifndef _R96_GLOBALS_H
-#define _R96_GLOBALS_H
+#ifndef _R96_BOOST_H
+#define _R96_BOOST_H
 
 /******************************************************************************
  * System include files.
@@ -47,27 +47,26 @@
  * Public definitions.
  ******************************************************************************/
 
-#define BOOST_BY_GEAR_ENA_BIT 4  //!< Boost by gear enable bit position
-
 
 /******************************************************************************
  * Global objects and data.
  ******************************************************************************/
- 
-// R96 custom I/O.
-extern byte pinClutch;              //!< Clutch digital input
-
-// R96 custom tables.
-extern struct table3D boostTable2;  //!< 8x8 boost map for boost by gear (gear 2)
-extern struct table3D boostTable3;  //!< 8x8 boost map for boost by gear (gear 3)
-extern struct table3D boostTable4;  //!< 8x8 boost map for boost by gear (gear 4)
-extern struct table3D boostTable5;  //!< 8x8 boost map for boost by gear (gear 5)
-extern struct table3D boostTable6;  //!< 8x8 boost map for boost by gear (gear 6)
 
 
 /******************************************************************************
  * Public functions.
  ******************************************************************************/
 
+/**
+ * @brief Choose a boost table based on configuration settings and the current 
+ * gear.
+ *
+ * Returns the primary boost table if boost by gear is disabled, or a boost 
+ * table for the current gear if enabled.
+ *
+ * @return A pointer to the boost table to use for the boost control algorithm.
+ */
+struct table3D* r96_getBoostTable();
 
-#endif // _R96_GLOBALS_H
+
+#endif // _R96_BOOST_H
